@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ServicesFragment">
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="12dp"
+                android:src="@drawable/arrow"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LuxeVista Services"
+            android:textAllCaps="true"
+            android:textSize="25sp"
+            android:textColor="@color/DeepTeal"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/custom_edittext1"
+            android:backgroundTint="@color/LightBeige">
+
+            <ImageView
+                android:layout_width="227dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="-1dp"
+                android:src="@drawable/beach6" />
+
+            <TextView
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="189dp"
+                android:text="Spa Treatments"
+                android:textAlignment="center"
+                android:textColor="@color/DeepTeal"
+                android:textSize="25sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="153dp"
+                android:layout_height="83dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:padding="10dp"
+                android:text="Indulge in pure relaxation at our serene spa.Prices:Starts from 30,000LKR($118)"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="58dp"
+                android:layout_marginBottom="19dp"
+                android:src="@drawable/baseline_add_shopping_cart_24" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/custom_edittext1"
+            android:backgroundTint="@color/LightBeige">
+
+            <ImageView
+                android:layout_width="205dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="13dp"
+                android:src="@drawable/dining" />
+
+            <TextView
+                android:layout_width="155dp"
+                android:layout_height="57dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="211dp"
+                android:text="Fine Dining"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="145dp"
+                android:layout_height="77dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="7dp"
+                android:padding="10dp"
+                android:text="Savor exquisite culinary creations at our fine dining restaurant.Prices:Starts from 35,000LKR($120)"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="60dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/baseline_add_shopping_cart_24" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/custom_edittext1"
+            android:backgroundTint="@color/LightBeige">
+
+            <TextView
+                android:layout_width="159dp"
+                android:layout_height="88dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="0dp"
+                android:padding="10dp"
+                android:text="Escape to your private paradise in our luxurious poolside cabanas.Prices:Starts from 40,000LKR($122) "
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="55dp"
+                android:layout_marginBottom="17dp"
+                android:src="@drawable/baseline_add_shopping_cart_24" />
+
+            <ImageView
+                android:layout_width="202dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/cabanapool" />
+
+            <TextView
+                android:layout_width="214dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="169dp"
+                android:text="Poolside Cabana"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="normal" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/custom_edittext1"
+            android:backgroundTint="@color/LightBeige">
+
+            <TextView
+                android:layout_width="159dp"
+                android:layout_height="82dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="0dp"
+                android:padding="10dp"
+                android:text="Explore the beauty of our coastline with our guided beach tour.Prices:Starts from 30,000-40,000LKR($118)"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="57dp"
+                android:layout_marginBottom="19dp"
+                android:src="@drawable/baseline_add_shopping_cart_24" />
+
+            <ImageView
+                android:layout_width="194dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/tour" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="159dp"
+                android:text="Guided Beach Tours"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="normal" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

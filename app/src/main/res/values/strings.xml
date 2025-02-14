@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">LuxeVistaResort</string>
+
+    <string-array name="filter_roomtype">
+        <item>All categories</item>
+        <item>Deluxe Rooms</item>
+        <item>Beachfront Suits</item>
+        <item>Cabanas</item>
+
+    </string-array>
+
+    <string-array name="filter_availability">
+        <item>All</item>
+        <item>Available</item>
+        <item>Reserved</item>
+
+    </string-array>
+
+    <string-array name="sort_price">
+        <item>Default pricing</item>
+        <item>Sort by Low - High</item>
+        <item>Sort by High - Low</item>
+    </string-array>
+</resources>
