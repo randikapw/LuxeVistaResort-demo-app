@@ -1,13 +1,15 @@
 package com.example.luxevistaresort.views.home;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.luxevistaresort.OffersFragment;
 import com.example.luxevistaresort.R;
 
 /**
@@ -25,6 +27,8 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button btnRoomBooking, btnServiceReservation, btnExclusiveOffers, btnBookTour;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -59,8 +63,31 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+                           Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        // Initialize buttons
+        btnRoomBooking = view.findViewById(R.id.button);
+        btnServiceReservation = view.findViewById(R.id.button2);
+        btnExclusiveOffers = view.findViewById(R.id.button3);
+        btnBookTour = view.findViewById(R.id.button4);
+
+        // Set click listener for Exclusive Offers button
+        btnExclusiveOffers.setOnClickListener(v -> {
+            // Create new instance of OffersFragment
+            OffersFragment offersFragment = new OffersFragment();
+            
+            // Get FragmentManager and start transaction
+            FragmentTransaction transaction = requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction();
+
+            // Replace current fragment with OffersFragment and add to back stack
+            transaction.replace(R.id.frameLayout, offersFragment)
+                .addToBackStack(null)  // This enables back button functionality
+                .commit();
+        });
+
+        return view;
     }
 }

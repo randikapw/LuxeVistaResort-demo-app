@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.luxevistaresort.OffersFragment;
 import com.example.luxevistaresort.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.luxevistaresort.views.notification.NotificationFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (itemId == R.id.profile) {
                 fragment = new ProfileFragment();
             } else if (itemId == R.id.notification) {
-                fragment = new OffersFragment();
+                fragment = new NotificationFragment();
             }
             
             if (fragment != null) {
