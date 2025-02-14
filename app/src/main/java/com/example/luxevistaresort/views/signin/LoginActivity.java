@@ -17,6 +17,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.luxevistaresort.views.home.MainActivity;
 import com.example.luxevistaresort.R;
 import com.example.luxevistaresort.helpers.DBHelper;
+import com.example.luxevistaresort.managers.UserManager;
+import com.example.luxevistaresort.models.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogin;
     private TextView dpRegister;
     private DBHelper dbHelper;
+    private UserManager userManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         dpRegister= findViewById(R.id.dpRegister);
 
         dbHelper = new DBHelper(this);
+        userManager = new UserManager(this);
 
         buttonLogin.setOnClickListener(view -> {
             String email = editEmail.getText().toString().trim();
@@ -57,15 +61,10 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             if (dbHelper.checkUser(email, password)) {
+                User user = dbHelper.getUserByEmail(email);
+                userManager.saveUser(user);
+
                 Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-
-                // Save user email in SharedPreferences
-                SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("email", email);
-                editor.apply();
-
-                // Navigate to MainActivity
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();

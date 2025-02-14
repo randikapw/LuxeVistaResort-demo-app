@@ -11,7 +11,7 @@ import com.example.luxevistaresort.models.User;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "ExampleApp.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
@@ -22,6 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ROLE = "role";
     public static final String COLUMN_PASSWORD = "password";
     public static final String COLUMN_PROFILE_IMAGE = "profile_image";
+    public static final String COLUMN_NIC = "nic";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -34,6 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_NAME + " TEXT, " +
                 COLUMN_EMAIL + " TEXT UNIQUE, " +
                 COLUMN_CONTACT + " TEXT, " +
+                COLUMN_NIC + " TEXT, " +
                 COLUMN_DOB + " TEXT, " +
                 COLUMN_GENDER + " TEXT, " +
                 COLUMN_ROLE + " TEXT, " +
@@ -48,12 +50,13 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertUser(String name, String email, String contact, String dob, String gender, String role, String password, byte[] image) {
+    public boolean insertUser(String name, String email, String contact, String nic, String dob, String gender, String role, String password, byte[] image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, name);
         values.put(COLUMN_EMAIL, email);
         values.put(COLUMN_CONTACT, contact);
+        values.put(COLUMN_NIC, nic);
         values.put(COLUMN_DOB, dob);
         values.put(COLUMN_GENDER, gender);
         values.put(COLUMN_ROLE, role);
@@ -81,11 +84,13 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             String name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME));
             String contact = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTACT));
+            String nic = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NIC));
+            String gender = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_GENDER));
             String dob = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DOB));
             byte[] profileImage = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_PROFILE_IMAGE));
 
             cursor.close();
-            return new User(name, email, contact, dob, profileImage);
+            return new User(name, email, contact, nic, gender, dob, profileImage);
         }
 
         if (cursor != null) {

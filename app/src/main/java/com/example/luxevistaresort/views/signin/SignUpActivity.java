@@ -36,8 +36,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button buttonSign;
     private DBHelper dbHelper;
     private byte[] imageBytes;
-
-
+    private static final int PICK_IMAGE_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +58,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         dpLogin = findViewById(R.id.dpLogin);
 
-
         dbHelper = new DBHelper(this);
 
         // Set DatePicker for DOB
@@ -78,64 +76,64 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-        private void showDatePicker() {
-            Calendar calendar = Calendar.getInstance();
-            int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH);
-            int day = calendar.get(Calendar.DAY_OF_MONTH);
+    private void showDatePicker() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-            DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, year1, month1, dayOfMonth) -> {
-                String selectedDate = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
-                editTextDate.setText(selectedDate);
-            }, year, month, day);
-            datePickerDialog.show();
-        }
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, year1, month1, dayOfMonth) -> {
+            String selectedDate = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
+            editTextDate.setText(selectedDate);
+        }, year, month, day);
+        datePickerDialog.show();
+    }
 
-        private void selectImageFromGallery() {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(intent, 100);
-        }
+    private void selectImageFromGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
 
-        @Override
-        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
-            if (requestCode == 100 && resultCode == RESULT_OK && data != null) {
-                Uri imageUri = data.getData();
-                imgProfile.setImageURI(imageUri);
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                    imageBytes = outputStream.toByteArray();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        private void registerUser() {
-            String name = editName.getText().toString();
-            String email = editEmail.getText().toString();
-            String phone = editPhone.getText().toString();
-            String birth= editTextDate.getText().toString();
-            String password = editPassword.getText().toString();
-
-            int genderId = rgGender.getCheckedRadioButtonId();
-            String gender = genderId != -1 ? ((RadioButton) findViewById(genderId)).getText().toString() : "";
-
-            if (name.isEmpty() || email.isEmpty() || phone.isEmpty() || birth.isEmpty() || password.isEmpty() || gender.isEmpty() || imageBytes == null) {
-                Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-
-
-            boolean result = dbHelper.insertUser(name, email, phone, birth, gender,"client", password, imageBytes);
-            if (result) {
-                Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, LoginActivity.class));
-            } else {
-                Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            Uri imageUri = data.getData();
+            imgProfile.setImageURI(imageUri);
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                imageBytes = outputStream.toByteArray();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
+
+    private void registerUser() {
+        String name = editName.getText().toString().trim();
+        String email = editEmail.getText().toString().trim();
+        String nic = editNIC.getText().toString().trim();
+        String phone = editPhone.getText().toString().trim();
+        String birth = editTextDate.getText().toString().trim();
+        String password = editPassword.getText().toString().trim();
+
+        int genderId = rgGender.getCheckedRadioButtonId();
+        RadioButton radioButton = findViewById(genderId);
+        String gender = radioButton != null ? radioButton.getText().toString() : "";
+
+        if (name.isEmpty() || email.isEmpty() || nic.isEmpty() || phone.isEmpty() || birth.isEmpty() || password.isEmpty() || gender.isEmpty() || imageBytes == null) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        boolean result = dbHelper.insertUser(name, email, phone, nic, birth, gender, "client", password, imageBytes);
+        if (result) {
+            Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, LoginActivity.class));
+        } else {
+            Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
