@@ -7,7 +7,7 @@
     android:background="@color/TealBlue"
     android:gravity="bottom"
     android:orientation="vertical"
-    tools:context=".views.signin.ProfileFragment">
+    tools:context=".views.home.ProfileFragment">
 
     <LinearLayout
 

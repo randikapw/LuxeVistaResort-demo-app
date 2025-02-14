@@ -1,4 +1,4 @@
-package com.example.luxevistaresort.views.signin;
+package com.example.luxevistaresort.views.home;
 
 import android.os.Bundle;
 
