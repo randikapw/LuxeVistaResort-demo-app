@@ -13,6 +13,7 @@ import com.example.luxevistaresort.OffersFragment;
 import com.example.luxevistaresort.PlacestovisitFragment;
 import com.example.luxevistaresort.R;
 import com.example.luxevistaresort.ServicesFragment;
+import com.example.luxevistaresort.views.room.RoomBookingFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -109,6 +110,19 @@ public class HomeFragment extends Fragment {
                 .beginTransaction();
 
             transaction.replace(R.id.frameLayout, placesFragment)
+                .addToBackStack(null)
+                .commit();
+        });
+
+        // Add to existing click listeners
+        btnRoomBooking.setOnClickListener(v -> {
+            RoomBookingFragment roomBookingFragment = new RoomBookingFragment();
+            
+            FragmentTransaction transaction = requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction();
+
+            transaction.replace(R.id.frameLayout, roomBookingFragment)
                 .addToBackStack(null)
                 .commit();
         });
