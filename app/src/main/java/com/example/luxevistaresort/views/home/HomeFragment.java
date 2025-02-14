@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.luxevistaresort.OffersFragment;
+import com.example.luxevistaresort.PlacestovisitFragment;
 import com.example.luxevistaresort.R;
+import com.example.luxevistaresort.ServicesFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,19 +74,42 @@ public class HomeFragment extends Fragment {
         btnExclusiveOffers = view.findViewById(R.id.button3);
         btnBookTour = view.findViewById(R.id.button4);
 
-        // Set click listener for Exclusive Offers button
-        btnExclusiveOffers.setOnClickListener(v -> {
-            // Create new instance of OffersFragment
-            OffersFragment offersFragment = new OffersFragment();
+        // Set click listener for Service Reservation button
+        btnServiceReservation.setOnClickListener(v -> {
+            ServicesFragment servicesFragment = new ServicesFragment();
             
-            // Get FragmentManager and start transaction
             FragmentTransaction transaction = requireActivity()
                 .getSupportFragmentManager()
                 .beginTransaction();
 
-            // Replace current fragment with OffersFragment and add to back stack
+            transaction.replace(R.id.frameLayout, servicesFragment)
+                .addToBackStack(null)
+                .commit();
+        });
+
+        // Set click listener for Exclusive Offers button
+        btnExclusiveOffers.setOnClickListener(v -> {
+            OffersFragment offersFragment = new OffersFragment();
+            
+            FragmentTransaction transaction = requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction();
+
             transaction.replace(R.id.frameLayout, offersFragment)
-                .addToBackStack(null)  // This enables back button functionality
+                .addToBackStack(null)
+                .commit();
+        });
+
+        // Set click listener for Book Tour button
+        btnBookTour.setOnClickListener(v -> {
+            PlacestovisitFragment placesFragment = new PlacestovisitFragment();
+            
+            FragmentTransaction transaction = requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction();
+
+            transaction.replace(R.id.frameLayout, placesFragment)
+                .addToBackStack(null)
                 .commit();
         });
 

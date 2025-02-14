@@ -1,4 +1,4 @@
-package com.example.luxevistaresort;
+package com.example.luxevistaresort.models;
 
 public class Service {
     private int S_ID;
