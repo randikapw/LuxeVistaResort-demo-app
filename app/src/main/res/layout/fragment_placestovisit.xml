@@ -6,23 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".PlacestovisitFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
 
+        <!-- Back button header -->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="83dp">
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_centerVertical="true"
-                android:padding="15dp"
-                android:src="@drawable/arrow"/>
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:src="@drawable/ic_back_arrow"/>
 
         </RelativeLayout>
 
@@ -35,7 +40,6 @@
             android:textColor="@color/DeepTeal"
             android:textStyle="bold"
             android:padding="10dp"/>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -122,11 +126,6 @@
 
         </RelativeLayout>
 
-
-
-
     </LinearLayout>
-
-
 
 </ScrollView>

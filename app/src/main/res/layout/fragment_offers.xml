@@ -7,24 +7,29 @@
     android:background="@color/Chartreuse"
     tools:context=".views.room.RoomsFragment">
 
-
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Single root LinearLayout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
 
+        <!-- Back button header -->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp">
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
                 android:padding="12dp"
-                android:src="@drawable/arrow"/>
+                android:src="@drawable/ic_back_arrow"/>
 
         </RelativeLayout>
 
@@ -38,7 +43,7 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-
+        <!-- First Offer -->
         <RelativeLayout
             android:layout_width="373dp"
             android:layout_height="230dp"
@@ -52,14 +57,11 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/couple" />
 
-
-
         </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_marginBottom="5dp"
             android:text="Exclusive Offer for Couples!"
             android:textAlignment="center"
@@ -67,7 +69,7 @@
             android:textSize="25sp"
             android:textStyle="normal" />
 
-
+        <!-- Second Offer -->
         <RelativeLayout
             android:layout_width="365dp"
             android:layout_height="210dp"
@@ -81,13 +83,11 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/games" />
 
-
         </RelativeLayout>
 
         <TextView
             android:layout_width="382dp"
             android:layout_height="77dp"
-            android:layout_alignParentBottom="true"
             android:layout_marginBottom="-6dp"
             android:text="Free Aquatic Games! Only for this month"
             android:textAlignment="center"
@@ -95,10 +95,6 @@
             android:textSize="25sp"
             android:textStyle="normal" />
 
-
-
     </LinearLayout>
-
-
 
 </ScrollView>

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.luxevistaresort.R;
 import com.example.luxevistaresort.adapters.RoomAdapter;
 import com.example.luxevistaresort.models.Room;
+import com.example.luxevistaresort.views.base.BaseFragment;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-public class RoomBookingFragment extends Fragment {
+public class RoomBookingFragment extends BaseFragment {
 
     private EditText editCheckIn, editCheckOut;
     private Spinner spinnerRoomType;
